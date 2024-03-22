@@ -3097,7 +3097,7 @@ function markdeepToHTML(str, elementMode) {
     });
 
     // EMPTY HYPERLINKS: [](url)
-    str = str.rp(/(^|[^!])\[[ \t]*?\]\(("?)([^<>\s"]+?)\2\)/g, function (match, pre, maybeQuote, url) {
+    str = str.rp(/(^|[^!])\[[ \t]*?\]\(("?)((?:[^<>\s"(]+?(?:\([^<>\s")]*\))?)*)\2\)/g, function (match, pre, maybeQuote, url) {
         return pre + '<a ' + protect('href="' + url + '"') + '>' + url + '</a>';
     });
 
